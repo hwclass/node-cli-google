@@ -8,12 +8,16 @@ A command line tool to search google
 * Then, install the package,
 <pre lang="javascript">
 <code>
-npm install node-cli-google
+npm install node-cli-google -g
 </code>
 </pre>
 
 * At last, you can write down on the console what you expect to find:
+<pre lang="javascript">
+<code>
+search node js development
+</code>
+</pre>
 
-[IMG][/IMG]
 [logo]: http://i64.tinypic.com/30icens.png"
 ![Usage Steps](http://i64.tinypic.com/30icens.png "Usage steps")
