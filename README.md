@@ -3,7 +3,7 @@ A command line tool to search google
 
 ####Install
 
-* Firstly, get (https://docs.npmjs.com/getting-started/installing-node)[Node.js and npm].
+* Firstly, get (Node.js and npm)[https://docs.npmjs.com/getting-started/installing-node].
 
 * Then, install the package,
 <pre lang="javascript">
