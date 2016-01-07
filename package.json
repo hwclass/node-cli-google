@@ -21,5 +21,12 @@
   "bugs": {
     "url": "https://github.com/hwclass/node-cli-google/issues"
   },
-  "homepage": "https://github.com/hwclass/node-cli-google"
+  "homepage": "https://github.com/hwclass/node-cli-google",
+  "dependencies": {
+    "https": "^1.0.0",
+    "querystring": "^0.2.0"
+  },
+  "bin": {
+    "search": "index.js"
+  }
 }
