@@ -25,15 +25,11 @@ request(options, function(err, resp, body) {
   var responseString;
   if ((err === null) && resp.statusCode === 200) {
     var $ = cheerio.load(body);
-    //console.log('cheerio search list\n' + $('body div.g .rc h3 a').val());
     var list = $('body .g');
     $(list).each(function (ind, item) {
       if (ind !== list.length) {
         if (typeof item.children[0] !== 'undefined' && typeof item.children[0].children[0].attribs.href !== 'undefined') {
-          //console.dir(item.children[0].children[0].attribs.href);
-          itemList.push(unescape(item.children['0'].children['0'].attribs.href.split('/url?q=')[1]));
-          //console.dir(item.children[0].children[0].children[0].next.data);
-          //windowOpen(unescape(item.children['0'].children['0'].attribs.href.split('/url?q=')[1]));
+          itemList.push(unescape(item.children['0'].children['0'].attribs.href.split('/url?q=')[1].split('&sa=')[0]));
         }
       }
     });
