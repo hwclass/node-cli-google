@@ -1,0 +1,25 @@
+{
+  "name": "node-cli-google",
+  "version": "1.0.0",
+  "description": "A command line tool to search Google",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hwclass/node-cli-google.git"
+  },
+  "keywords": [
+    "node",
+    "cli",
+    "google",
+    "search"
+  ],
+  "author": "hwclass",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hwclass/node-cli-google/issues"
+  },
+  "homepage": "https://github.com/hwclass/node-cli-google"
+}
