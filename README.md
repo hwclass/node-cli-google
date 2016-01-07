@@ -21,3 +21,5 @@ search node js development
 
 [logo]: http://i64.tinypic.com/30icens.png"
 ![Usage Steps](http://i64.tinypic.com/30icens.png "Usage steps")
+
+After you choose the links after search, when you enter, you can get the links opened in the browser immediately.
