@@ -1,6 +1,12 @@
 # node-cli-google
 A command line tool to search google
 
+[![npm version](https://badge.fury.io/js/node-cli-google.svg)](https://badge.fury.io/js/node-cli-google)
+
+[![NPM](https://nodei.co/npm/node-cli-google.png)](https://nodei.co/npm/node-cli-google/)
+
+[![js-standard-style](https://raw.githubusercontent.com/feross/standard/master/badge.png)](https://github.com/feross/standard)
+
 ####Install
 
 * Firstly, get [Node.js and npm](https://docs.npmjs.com/getting-started/installing-node).

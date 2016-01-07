@@ -33,5 +33,8 @@
   "preferGlobal": true,
   "bin": {
     "search": "index.js"
+  },
+  "devDependencies": {
+    "standard": "^5.4.1"
   }
 }
