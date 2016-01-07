@@ -34,7 +34,7 @@ request(options, function(err, resp, body) {
       }
     });
   } else {
-    new Error('Error on response' + (resp ? ' (' + resp.statusCode + ')' : '') + ':' + err + ' : ' + body);
+    new Error('Error: ' + err);
   }
 
   var keywordChoices = new cliselect(itemList);
