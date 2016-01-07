@@ -14,4 +14,6 @@ npm install node-cli-google
 
 * At last, you can write down on the console what you expect to find:
 
-[IMG]http://i64.tinypic.com/30icens.png[/IMG]
+[IMG][/IMG]
+[logo]: http://i64.tinypic.com/30icens.png"
+![Usage Steps](http://i64.tinypic.com/30icens.png "Usage steps")
