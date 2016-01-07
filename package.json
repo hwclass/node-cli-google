@@ -2,7 +2,6 @@
   "name": "node-cli-google",
   "version": "1.0.0",
   "description": "A command line tool to search Google",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -26,6 +25,7 @@
     "https": "^1.0.0",
     "querystring": "^0.2.0"
   },
+  "preferGlobal": true,
   "bin": {
     "search": "index.js"
   }
