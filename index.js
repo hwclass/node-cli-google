@@ -7,24 +7,26 @@ var cliselect = require('list-selector-cli')
 var util = require('util')
 var windowOpen = require('open')
 
-var userArgs = process.argv.slice(2);
+var userArgs = process.argv.slice(2)
 
-var requestUrl = 'http://www.google.%s/search?hl=%s&q=%s&start=%s&sa=N&num=%s&ie=UTF-8&oe=UTF-8';
+var requestUrl = 'http://www.google.%s/search?hl=%s&q=%s&start=%s&sa=N&num=%s&ie=UTF-8&oe=UTF-8'
 
 var searchObj = searchObj || {}
 searchObj.tld = 'com'
 searchObj.lang = 'en'
 searchObj.requestOptions = {}
 
-requestUrl = util.format(requestUrl, searchObj.tld, searchObj.lang, querystring.escape(userArgs), 0, searchObj.resultsPerPage);
+requestUrl = util.format(requestUrl, searchObj.tld, searchObj.lang, querystring.escape(userArgs), 0, searchObj.resultsPerPage)
 
-var options = { uri: requestUrl, method: 'GET' },
-    itemList = [];
+var options = { uri : requestUrl, method : 'GET'}
+var itemList = []
 
-request (options, function(err, resp, body) {
+request(options, function(err, resp, body) {
+  var responseString;
   if ((err === null) && resp.statusCode === 200) {
     var $ = cheerio.load(body);
     var list = $('body .g');
+    console.log(list);
     $(list).each(function (ind, item) {
       if (ind !== list.length) {
         if (typeof item.children[0] !== 'undefined' && typeof item.children[0].children[0].attribs.href !== 'undefined') {
