@@ -6,6 +6,7 @@ var cheerio = require('cheerio')
 var cliselect = require('list-selector-cli')
 var util = require('util')
 var windowOpen = require('open')
+var _ = require('lodash')
 
 var userArgs = process.argv.slice(2)
 
@@ -21,18 +22,14 @@ requestUrl = util.format(requestUrl, searchObj.tld, searchObj.lang, querystring.
 var options = { headers: {'Content-Type': 'application/x-www-form-urlencoded'}, uri : requestUrl, method : 'GET'}
 var itemList = []
 
-console.dir(options);
-
 request(options, function(err, resp, body) {
-  console.dir(body);
   var responseString;
   if ((err === null) && resp.statusCode === 200) {
     var $ = cheerio.load(body);
     var list = $('body .g');
-    console.log(list);
     $(list).each(function (ind, item) {
       if (ind !== list.length) {
-        if (typeof item.children[0] !== 'undefined' && typeof item.children[0].children[0].attribs.href !== 'undefined') {
+        if (typeof item.children[0] !== 'undefined' && typeof item.children[0].children[0].attribs.href !== 'undefined' && (!_.contains(item.children[0].children[0].attribs.href.split('/url?q=')[0], '/search?'))) {
           itemList.push(unescape(item.children['0'].children['0'].attribs.href.split('/url?q=')[1].split('&sa=')[0]));
         }
       }
