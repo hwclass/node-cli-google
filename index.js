@@ -8,22 +8,29 @@ var util = require('util')
 var windowOpen = require('open')
 var _ = require('lodash')
 
-var userArgs = process.argv.slice(2)
+var userArgs = process.argv.slice(2),
+    langParameterPrefix = '--lang-',
+    totalResultSetPrefix = '--resultset-'
+
+var lang = querystring.escape(userArgs).split(langParameterPrefix)[1],
+    totalResultSetNum = querystring.escape(userArgs).split(totalResultSetPrefix)[1];
 
 var requestUrl = 'http://www.google.%s/search?hl=%s&q=%s&start=%s&sa=N&num=%s&ie=UTF-8&oe=UTF-8'
 
-var searchObj = searchObj || {}
-searchObj.tld = 'com'
-searchObj.lang = 'en'
-searchObj.requestOptions = {}
+var searchObj = {
+  tld : 'com',
+  lang : lang,
+  totalResultSetNum : totalResultSetNum
+ }
 
-requestUrl = util.format(requestUrl, searchObj.tld, searchObj.lang, querystring.escape(userArgs), 0, searchObj.resultsPerPage)
+requestUrl = util.format(requestUrl, searchObj.tld, searchObj.lang, querystring.escape(userArgs), 0, searchObj.totalResultSetNum)
 
-var options = { headers: {'Content-Type': 'application/x-www-form-urlencoded'}, uri : requestUrl, method : 'GET'}
-var itemList = []
+var defaultStatusCodeOK = 200,
+    options = { headers: {'Content-Type': 'application/x-www-form-urlencoded'}, uri : requestUrl, method : 'GET'},
+    itemList = []
 
 request(options, function(err, resp, body) {
-  if ((err === null) && resp.statusCode === 200) {
+  if (_.isNull(err) && resp.statusCode === defaultStatusCodeOK) {
     var $ = cheerio.load(body);
     var list = $('body .g');
     $(list).each(function (ind, item) {
