@@ -18,10 +18,13 @@ searchObj.requestOptions = {}
 
 requestUrl = util.format(requestUrl, searchObj.tld, searchObj.lang, querystring.escape(userArgs), 0, searchObj.resultsPerPage)
 
-var options = { uri : requestUrl, method : 'GET'}
+var options = { headers: {'Content-Type': 'application/x-www-form-urlencoded'}, uri : requestUrl, method : 'GET'}
 var itemList = []
 
+console.dir(options);
+
 request(options, function(err, resp, body) {
+  console.dir(body);
   var responseString;
   if ((err === null) && resp.statusCode === 200) {
     var $ = cheerio.load(body);
