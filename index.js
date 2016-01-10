@@ -23,7 +23,6 @@ var options = { headers: {'Content-Type': 'application/x-www-form-urlencoded'}, 
 var itemList = []
 
 request(options, function(err, resp, body) {
-  var responseString;
   if ((err === null) && resp.statusCode === 200) {
     var $ = cheerio.load(body);
     var list = $('body .g');
