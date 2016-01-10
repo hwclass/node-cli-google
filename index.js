@@ -28,7 +28,7 @@ request(options, function(err, resp, body) {
     var list = $('body .g');
     $(list).each(function (ind, item) {
       if (ind !== list.length) {
-        if (typeof item.children[0] !== 'undefined' && typeof item.children[0].children[0].attribs.href !== 'undefined' && (!_.contains(item.children[0].children[0].attribs.href.split('/url?q=')[0], '/search?'))) {
+        if ((!_.isUndefined(item.children[0])) && (!_.isUndefined(item.children[0].children[0].attribs.href)) && (!_.contains(item.children[0].children[0].attribs.href.split('/url?q=')[0], '/search?'))) {
           itemList.push(unescape(item.children['0'].children['0'].attribs.href.split('/url?q=')[1].split('&sa=')[0]));
         }
       }
