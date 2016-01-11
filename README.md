@@ -5,7 +5,7 @@ A command line tool to search google
 
 [![NPM](https://nodei.co/npm/node-cli-google.png)](https://nodei.co/npm/node-cli-google/)
 
-[![js-standard-style](https://raw.githubusercontent.com/feross/standard/master/badge.png)](https://github.com/feross/standard)
+[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
 ####Install
 
