@@ -1,5 +1,6 @@
 #! /usr/bin/env node
 
+//Dependencies
 var request = require('request')
 var querystring = require('querystring')
 var cheerio = require('cheerio')
@@ -8,27 +9,55 @@ var util = require('util')
 var windowOpen = require('open')
 var _ = require('lodash')
 
+//The default variables
+var defaultStatusCodeOK = 200,
+    itemList = [];
+
+//The user arguments to get
 var userArgs = process.argv.slice(2),
     langParameterPrefix = '--lang-',
     totalResultSetPrefix = '--resultset-'
 
+//language and total result set number 
 var lang = querystring.escape(userArgs).split(langParameterPrefix)[1],
     totalResultSetNum = querystring.escape(userArgs).split(totalResultSetPrefix)[1];
 
-var requestUrl = 'http://www.google.%s/search?hl=%s&q=%s&start=%s&sa=N&num=%s&ie=UTF-8&oe=UTF-8'
+//URL Builder for request
+var RequestUrlBuilder = (function () {
+  return {
+    getBuiltUrl : function (rawUrl, tld, lang, totalResultSetNum) {
+      var proto = new Object(); 
+      proto.rawUrl = rawUrl;
+      proto.tld = tld;
+      proto.lang = lang;
+      proto.totalResultSetNum = totalResultSetNum;
+      console.log(rawUrl, tld, lang, totalResultSetNum);
+      return util.format(proto.rawUrl, proto.tld, proto.lang, 0, proto.totalResultSetNum); 
+    }
+  }
+})();
 
+//The search literal
 var searchObj = {
+  rawUrl : 'http://www.google.%s/search?hl=%s&q=%s&start=%s&sa=N&num=%s&ie=UTF-8&oe=UTF-8',
   tld : 'com',
   lang : lang,
   totalResultSetNum : totalResultSetNum
  }
 
-requestUrl = util.format(requestUrl, searchObj.tld, searchObj.lang, querystring.escape(userArgs), 0, searchObj.totalResultSetNum)
+//Formatted request URL
+requestUrl = RequestUrlBuilder.getBuiltUrl(searchObj.rawUrl, searchObj.tld, searchObj.lang, querystring.escape(userArgs), 0, searchObj.totalResultSetNum);
 
-var defaultStatusCodeOK = 200,
-    options = { headers: {'Content-Type': 'application/x-www-form-urlencoded'}, uri : requestUrl, method : 'GET'},
-    itemList = []
+//Options container
+var options = { 
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded'
+  }, 
+  uri : requestUrl, 
+  method : 'GET'
+};
 
+//The point that we fetched the data
 request(options, function(err, resp, body) {
   if (_.isNull(err) && resp.statusCode === defaultStatusCodeOK) {
     var $ = cheerio.load(body);
