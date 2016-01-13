@@ -33,7 +33,7 @@
   },
   "preferGlobal": true,
   "bin": {
-    "search": "index.js"
+    "search": "./lib/node-cli-google-1.2.2.js"
   },
   "devDependencies": {
     "standard": "^5.4.1"
