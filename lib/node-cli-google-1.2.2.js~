@@ -36,24 +36,6 @@ var RequestUrlBuilder = (function () {
   }
 })();
 
-var RequestBuilder = (function () {
-  return {
-    makeRequest : function () {
-      request(options, function (err, resp, body) {
-        if (_.isNull(err) && resp.statusCode === defaultStatusCodeOK) {
-	  var $ = cheerio.load(body);
-	  var list = $('body .g');
-	  $(list).each(function () {
-            if (ind !== list.length) {
-              //TODO : Fill here with the needed code rows	      
-	    }
-	  })
-	}
-      });      
-    }
-  }
-})();
-
 //The search literal
 var searchObj = {
   rawUrl : 'http://www.google.%s/search?hl=%s&q=%s&start=%s&sa=N&num=%s&ie=UTF-8&oe=UTF-8',
@@ -100,4 +82,4 @@ request(options, function(err, resp, body) {
     }
   });
 
-});ú
+});
