@@ -7,6 +7,9 @@ A command line tool to search google
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
+[logo]: http://i64.tinypic.com/30icens.png"
+![Screenshot](http://i64.tinypic.com/30icens.png "Usage steps")
+
 ####Install
 
 * Firstly, get [Node.js and npm](https://docs.npmjs.com/getting-started/installing-node).
@@ -26,7 +29,4 @@ cd lib
 search node js development
 ```
 
-After you choose the links after search, when you enter, you can get the links opened in the browser immediately.
-
-[logo]: http://i64.tinypic.com/30icens.png"
-![Usage Steps](http://i64.tinypic.com/30icens.png "Usage steps")
+* After you choose the links after search, when you enter, you can get the links opened in the browser immediately.
