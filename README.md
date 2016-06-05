@@ -12,18 +12,19 @@ A command line tool to search google
 * Firstly, get [Node.js and npm](https://docs.npmjs.com/getting-started/installing-node).
 
 * Then, install the package,
-<pre lang="javascript">
-<code>
+```javascript
 npm install node-cli-google -g
-</code>
-</pre>
+```
+
+* Enter into the lib directory,
+```javascript
+cd lib
+```
 
 * At last, you can write down on the console what you expect to find:
-<pre lang="javascript">
-<code>
+```javascript
 search node js development
-</code>
-</pre>
+```
 
 After you choose the links after search, when you enter, you can get the links opened in the browser immediately.
 
