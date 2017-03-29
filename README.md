@@ -1,5 +1,5 @@
 # node-cli-google
-A command line tool to search google
+A command line tool for "Googling".
 
 [![npm version](https://badge.fury.io/js/node-cli-google.svg)](https://badge.fury.io/js/node-cli-google)
 
@@ -10,21 +10,16 @@ A command line tool to search google
 [logo]: http://i64.tinypic.com/30icens.png"
 ![Screenshot](http://i64.tinypic.com/30icens.png "Usage steps")
 
-####Install
+### Install
 
-* Firstly, get [Node.js and npm](https://docs.npmjs.com/getting-started/installing-node).
+* At first, get [Node.js and npm](https://docs.npmjs.com/getting-started/installing-node).
 
 * Then, install the package,
 ```javascript
-npm install node-cli-google -g
+npm i node-cli-google -g
 ```
 
-* Enter into the lib directory,
-```javascript
-cd lib
-```
-
-* At last, you can write down on the console what you expect to find:
+* Now, you can write down on the terminal what you expect to search:
 ```javascript
 search node js development
 ```
