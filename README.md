@@ -25,3 +25,7 @@ search node js development
 ```
 
 * After you choose the links after search, when you enter, you can get the links opened in the browser immediately.
+
+### Licence
+
+MIT
