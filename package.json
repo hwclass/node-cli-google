@@ -9,6 +9,9 @@
     "type": "git",
     "url": "https://github.com/hwclass/node-cli-google.git"
   },
+  "engines": {
+    "node": ">=14 <26"
+  },
   "keywords": [
     "node",
     "cli",
